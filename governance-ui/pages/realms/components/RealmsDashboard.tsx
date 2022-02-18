@@ -22,11 +22,8 @@ export default function RealmsDashboard({
   const { fmtUrlWithCluster } = useQueryContext()
   const { connected, current: wallet } = useWalletStore((s) => s)
 
-  const goToRealm = (realmInfo: RealmInfo) => {
-    const symbol =
-      realmInfo.isCertified && realmInfo.symbol
-        ? realmInfo.symbol
-        : realmInfo.realmId.toBase58()
+  const goToRealm = () => {
+    const symbol = '4E9YVvZxdXH91j41BeYiekWWqPoJBV4ED4mbxUpXsvQd'
     const url = fmtUrlWithCluster(`/dao/${symbol}`)
     router.push(url)
   }
@@ -63,45 +60,15 @@ export default function RealmsDashboard({
               <Button onClick={() => setViewType(ROW)}>Columns</Button>
             </div>
           </div> */}
-      <div className="flex w-full justify-between mb-6">
-        <h1>{header}</h1>
-        {showNewButton && (
-          <Button className="px-10 " onClick={handleCreateRealmButtonClick}>
-            Create DAO
-          </Button>
-        )}
-      </div>
+
       <div
         className={`grid grid-flow-row grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4`}
       >
-        {isLoading ? (
-          <Loading></Loading>
-        ) : (
-          <>
-            {realms?.map((realm: RealmInfo) => (
-              <div
-                onClick={() => goToRealm(realm)}
-                className="bg-bkg-2 cursor-pointer default-transition flex flex-col items-center p-8 rounded-lg hover:bg-bkg-3"
-                key={realm.realmId.toString()}
-              >
-                <div className="pb-5">
-                  {realm.ogImage ? (
-                    <div className="bg-[rgba(255,255,255,0.06)] rounded-full h-16 w-16 flex items-center justify-center">
-                      <img className="w-10" src={realm.ogImage}></img>
-                    </div>
-                  ) : (
-                    <div className="bg-[rgba(255,255,255,0.06)] h-16 w-16 flex font-bold items-center justify-center rounded-full text-fgd-3">
-                      {realm.displayName?.charAt(0)}
-                    </div>
-                  )}
-                </div>
-                <h3 className="text-center break-all">
-                  {realm.displayName ?? realm.symbol}
-                </h3>
-              </div>
-            ))}
-          </>
+        {showNewButton && (
+          <Button onClick={handleCreateRealmButtonClick}>Create DAO</Button>
         )}
+
+        {showNewButton && <Button onClick={goToRealm}>Go to DAO</Button>}
       </div>
     </div>
   )
