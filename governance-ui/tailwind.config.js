@@ -9,13 +9,30 @@ module.exports = {
   theme: {
     fontFamily: {
       display: ['PT Mono, monospace'],
-      body: ['Inter, sans-serif'],
+      body: ['PT Mono, monospace'],
     },
     extend: {
       cursor: {
         help: 'help',
       },
       colors: {
+        'tokr-theme': {
+          primary: { light: '#33FF00', dark: '#33FF00' },
+          'secondary-1': { light: '#33FF00', dark: '#33FF00' },
+          'secondary-2': { light: '#33FF00', dark: '#33FF00' },
+          'bkg-1': '#282828',
+          'bkg-2': '#282828',
+          'bkg-3': '#282828',
+          'bkg-4': '#282828',
+          'fgd-1': '#33FF00',
+          'fgd-2': '#33FF00',
+          'fgd-3': '#33FF00',
+          'fgd-4': '#33FF00',
+          orange: '#F7A531',
+          red: '#cb676f',
+          green: '#78C46C',
+          blue: '#8AACEB',
+        },
         'sierra-theme': {
           primary: { light: '#E1CE7A', dark: '#D2B537' },
           'secondary-1': { light: '#AFD803', dark: '#6CBF00' },
