@@ -5,24 +5,24 @@
 /* Theme */
 
 :root {
-  --primary-light: theme('colors.sierra-theme.primary.light');
-  --primary-dark: theme('colors.sierra-theme.primary.dark');
-  --secondary-1: theme('colors.sierra-theme["secondary-1"].light');
-  --secondary-1-dark: theme('colors.sierra-theme["secondary-1"].dark');
-  --secondary-2: theme('colors.sierra-theme["secondary-2"].light');
-  --secondary-2-dark: theme('colors.sierra-theme["secondary-2"].dark');
-  --red: theme('colors.sierra-theme.red');
-  --green: theme('colors.sierra-theme.green');
-  --orange: theme('colors.sierra-theme.orange');
-  --blue: theme('colors.sierra-theme.blue');
-  --bkg-1: theme('colors.sierra-theme["bkg-1"]');
-  --bkg-2: theme('colors.sierra-theme["bkg-2"]');
-  --bkg-3: theme('colors.sierra-theme["bkg-3"]');
-  --bkg-4: theme('colors.sierra-theme["bkg-4"]');
-  --fgd-1: theme('colors.sierra-theme["fgd-1"]');
-  --fgd-2: theme('colors.sierra-theme["fgd-2"]');
-  --fgd-3: theme('colors.sierra-theme["fgd-3"]');
-  --fgd-4: theme('colors.sierra-theme["fgd-4"]');
+  --primary-light: theme('colors.tokr-theme.primary.light');
+  --primary-dark: theme('colors.tokr-theme.primary.dark');
+  --secondary-1: theme('colors.tokr-theme["secondary-1"].light');
+  --secondary-1-dark: theme('colors.tokr-theme["secondary-1"].dark');
+  --secondary-2: theme('colors.tokr-theme["secondary-2"].light');
+  --secondary-2-dark: theme('colors.tokr-theme["secondary-2"].dark');
+  --red: theme('colors.tokr-theme.red');
+  --green: theme('colors.tokr-theme.green');
+  --orange: theme('colors.tokr-theme.orange');
+  --blue: theme('colors.tokr-theme.blue');
+  --bkg-1: theme('colors.tokr-theme["bkg-1"]');
+  --bkg-2: theme('colors.tokr-theme["bkg-2"]');
+  --bkg-3: theme('colors.tokr-theme["bkg-3"]');
+  --bkg-4: theme('colors.tokr-theme["bkg-4"]');
+  --fgd-1: theme('colors.tokr-theme["fgd-1"]');
+  --fgd-2: theme('colors.tokr-theme["fgd-2"]');
+  --fgd-3: theme('colors.tokr-theme["fgd-3"]');
+  --fgd-4: theme('colors.tokr-theme["fgd-4"]');
 }
 
 /* base */

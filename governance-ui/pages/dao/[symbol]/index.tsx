@@ -106,7 +106,7 @@ const REALM = () => {
   return (
     <>
       <div className="grid grid-cols-12 gap-4">
-        <div className="bg-bkg-2 col-span-12 md:col-span-7 md:order-first lg:col-span-8 order-last p-4 md:p-6 rounded-lg">
+        <div className="border border-fgd-1 bg-bkg-2 col-span-12 md:col-span-7 md:order-first lg:col-span-8 order-last p-4 md:p-6 rounded-lg">
           <RealmHeader />
           <div>
             {realmInfo?.bannerImage ? (
@@ -151,7 +151,7 @@ const REALM = () => {
             )}
           </div>
         </div>
-        <div className="col-span-12 md:col-span-5 lg:col-span-4 space-y-4">
+        <div className="col-span-12 md:col-span-5 lg:col-span-4 space-y-4 border border-fgd-1">
           <TokenBalanceCardWrapper />
           <NFTSCompactWrapper></NFTSCompactWrapper>
           <AccountsCompactWrapper />
