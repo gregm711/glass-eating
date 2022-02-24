@@ -88,20 +88,20 @@ const REALM = () => {
     }
   }, [JSON.stringify(nftsGovernedTokenAccounts)])
   // DEBUG print remove
-  console.log(
-    'governance page tokenAccount',
-    realmTokenAccount && realmTokenAccount.publicKey.toBase58()
-  )
+//   console.log(
+//     'governance page tokenAccount',
+//     realmTokenAccount && realmTokenAccount.publicKey.toBase58()
+//   )
 
-  console.log(
-    'governance page wallet',
-    wallet?.connected && wallet?.publicKey?.toBase58()
-  )
+//   console.log(
+//     'governance page wallet',
+//     wallet?.connected && wallet?.publicKey?.toBase58()
+//   )
 
-  console.log(
-    'governance page tokenRecord',
-    wallet?.connected && ownTokenRecord
-  )
+//   console.log(
+//     'governance page tokenRecord',
+//     wallet?.connected && ownTokenRecord
+//   )
 
   return (
     <>
