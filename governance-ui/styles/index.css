@@ -96,10 +96,12 @@ button {
 }
 
 /* width */
+/*
 ::-webkit-scrollbar {
   width: 16px;
   height: 16px;
 }
+*/
 
 /* Track */
 ::-webkit-scrollbar-track {
