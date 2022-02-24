@@ -10,7 +10,7 @@ import useRealm from '../hooks/useRealm'
 import { getResourcePathPart } from '../tools/core/resources'
 import useRouterHistory from '@hooks/useRouterHistory'
 import Footer from '@components/Footer'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import useDepositStore from 'VoteStakeRegistry/stores/useDepositStore'
 import useWalletStore from 'stores/useWalletStore'
 import { useVoteRegistry } from 'VoteStakeRegistry/hooks/useVoteRegistry'
@@ -18,100 +18,92 @@ import ErrorBoundary from '@components/ErrorBoundary'
 import { WalletIdentityProvider } from '@cardinal/namespaces-components'
 
 function App({ Component, pageProps }) {
-  useHydrateStore()
-  useWallet()
-  useRouterHistory()
-  const { getDeposits, resetDepositState } = useDepositStore()
-  const { realm, realmInfo, symbol, ownTokenRecord } = useRealm()
-  const wallet = useWalletStore((s) => s.current)
-  const connection = useWalletStore((s) => s.connection)
-  const { client } = useVoteRegistry()
-  const realmName = realmInfo?.displayName ?? realm?.account?.name
+	useHydrateStore()
+	useWallet()
+	const  { history, getLastRoute} = useRouterHistory()
+	const { getDeposits, resetDepositState } = useDepositStore()
+	const { realm, realmInfo, symbol, ownTokenRecord } = useRealm()
+	const wallet = useWalletStore((s) => s.current)
+	const connection = useWalletStore((s) => s.connection)
+	const { client } = useVoteRegistry()
+	const realmName = realmInfo?.displayName ?? realm?.account?.name
 
-  const title = realmName ? `${realmName}` : 'Solana Governance'
-  const description = `Discuss and vote on ${title} proposals.`
+	const title = realmName ? `${realmName}` : 'Solana Governance'
+	const description = `Discuss and vote on ${title} proposals.`
 
-  // Note: ?v==${Date.now()} is added to the url to force favicon refresh.
-  // Without it browsers would cache the last used and won't change it for different realms
-  // https://stackoverflow.com/questions/2208933/how-do-i-force-a-favicon-refresh
-  const faviconSelector = symbol ?? 'SOLANA'
-  const faviconUrl = `/realms/${getResourcePathPart(
-    faviconSelector as string
-  )}/favicon.ico?v=${Date.now()}`
+	// Note: ?v==${Date.now()} is added to the url to force favicon refresh.
+	// Without it browsers would cache the last used and won't change it for different realms
+	// https://stackoverflow.com/questions/2208933/how-do-i-force-a-favicon-refresh
+	const faviconSelector = symbol ?? 'SOLANA'
+	const faviconUrl = `/realms/${getResourcePathPart(faviconSelector as string)}/favicon.ico?v=${Date.now()}`
+	const [pathName, setPathName] = useState('/');
+	const [showNav, setShowNav] = useState(true);
+	const [replaceClasses, setReplaceClasses] = useState();
 
-  useEffect(() => {
-    if (
-      realm?.account.config.useCommunityVoterWeightAddin &&
-      realm.pubkey &&
-      ownTokenRecord?.pubkey &&
-      wallet?.connected &&
-      client
-    ) {
-      getDeposits({
-        realmPk: realm!.pubkey,
-        communityMintPk: ownTokenRecord.account.governingTokenMint,
-        walletPk: wallet!.publicKey!,
-        client: client!,
-        connection: connection.current,
-      })
-    } else if (!wallet?.connected) {
-      resetDepositState()
-    }
-  }, [
-    realm?.pubkey.toBase58(),
-    ownTokenRecord?.pubkey.toBase58(),
-    wallet?.connected,
-    client,
-  ])
-  return (
-    <div className="relative">
-      <Head>
-        <title>{title}</title>
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=PT+Mono&display=swap"
-          rel="stylesheet"
-        />
+	const globalProps = {
+		...pageProps,
+		setShowNav,
+		setReplaceClasses
+	}
 
-        {faviconUrl && <link rel="icon" href={faviconUrl} />}
+	useEffect(() => {
+		setShowNav( ( getLastRoute() === '/' || getLastRoute() === '/realms' ) ? false : true );
+		setPathName( getLastRoute() );
+	}, [history]);
 
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+	useEffect(() => {
+		if (realm?.account.config.useCommunityVoterWeightAddin && realm.pubkey && ownTokenRecord?.pubkey && wallet?.connected && client) {
+			getDeposits({
+				realmPk: realm!.pubkey,
+				communityMintPk: ownTokenRecord.account.governingTokenMint,
+				walletPk: wallet!.publicKey!,
+				client: client!,
+				connection: connection.current,
+			})
+		} else if (!wallet?.connected) {
+			resetDepositState()
+		}
+	}, [realm?.pubkey.toBase58(), ownTokenRecord?.pubkey.toBase58(), wallet?.connected, client])
+	return (
+		<div className="relative">
+			<Head>
+				<title>{title}</title>
+				<link rel="preconnect" href="https://fonts.gstatic.com" />
+				<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=PT+Mono&display=swap" rel="stylesheet" />
 
-        {realmInfo?.keywords && (
-          <meta name="keywords" content={realmInfo.keywords} />
-        )}
+				{faviconUrl && <link rel="icon" href={faviconUrl} />}
 
-        <meta name="description" content={description} />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <meta name="msapplication-TileColor" content="#ffffff" />
-        <meta name="theme-color" content="#ffffff" />
+				<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
-        {realmInfo?.ogImage && (
-          <meta property="og:image" content={realmInfo.ogImage} />
-        )}
-        <meta name="twitter:card" content="summary" />
+				{realmInfo?.keywords && <meta name="keywords" content={realmInfo.keywords} />}
 
-        {realmInfo?.twitter && (
-          <meta name="twitter:site" content={realmInfo.twitter} />
-        )}
-      </Head>
-      <ErrorBoundary>
-        <ThemeProvider defaultTheme="Mango">
-          <WalletIdentityProvider appName={'Realms'}>
-            {/* <NavBar /> */}
-            <Notifications />
-            <PageBodyContainer>
-              <Component {...pageProps} />
-            </PageBodyContainer>
-          </WalletIdentityProvider>
-        </ThemeProvider>
-      </ErrorBoundary>
-      {/* <Footer /> */}
-    </div>
-  )
+				<meta name="description" content={description} />
+				<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+				<meta name="msapplication-TileColor" content="#ffffff" />
+				<meta name="theme-color" content="#ffffff" />
+
+				<meta property="og:type" content="website" />
+				<meta property="og:title" content={title} />
+				<meta property="og:description" content={description} />
+				{realmInfo?.ogImage && <meta property="og:image" content={realmInfo.ogImage} />}
+				<meta name="twitter:card" content="summary" />
+
+				{realmInfo?.twitter && <meta name="twitter:site" content={realmInfo.twitter} />}
+			</Head>
+			<ErrorBoundary>
+				<ThemeProvider defaultTheme="Mango">
+					<WalletIdentityProvider appName={'Realms'}>
+						{ showNav && <NavBar /> }
+						<Notifications />
+						<PageBodyContainer showName={ showNav } replaceClasses={ replaceClasses } pathName={ pathName }>
+							<Component { ...globalProps } />
+						</PageBodyContainer>
+					</WalletIdentityProvider>
+				</ThemeProvider>
+			</ErrorBoundary>
+			{/* <Footer /> */}
+		</div>
+	)
 }
 
 export default App
