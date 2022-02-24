@@ -101,7 +101,7 @@ function App({ Component, pageProps }) {
       <ErrorBoundary>
         <ThemeProvider defaultTheme="Mango">
           <WalletIdentityProvider appName={'Realms'}>
-            <NavBar />
+            {/* <NavBar /> */}
             <Notifications />
             <PageBodyContainer>
               <Component {...pageProps} />
@@ -109,7 +109,7 @@ function App({ Component, pageProps }) {
           </WalletIdentityProvider>
         </ThemeProvider>
       </ErrorBoundary>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }
