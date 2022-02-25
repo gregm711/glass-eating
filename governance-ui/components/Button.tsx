@@ -34,11 +34,11 @@ export const SecondaryButton: FunctionComponent<ButtonProps> = ({ children, onCl
 	)
 }
 
-export const LinkButton: FunctionComponent<ButtonProps> = ({ children, onClick, disabled = false, className, hideDefaults, href, title, ...props }) => {
+export const LinkButton: FunctionComponent<ButtonProps> = ({ children, onClick, disabled = false, className, hideDefaults, href, target, title, ...props }) => {
 	return (
-		href ? <a href={ href } title={ title } onClick={ onClick } disabled={disabled} className={`${className ? className + (hideDefaults ? '' : ' ') : ''}${hideDefaults ? '' : 'border-0 default-transition text-sm underline hover:no-underline hover:opacity-60 focus:outline-none'}`} {...props}>
+		href ? <a href={ href } title={ title } target={ target } onClick={ onClick } disabled={disabled} className={`${className ? className + (hideDefaults ? '' : ' ') : ''}${hideDefaults ? '' : 'border-0 default-transition text-sm underline hover:no-underline hover:opacity-60 focus:outline-none'}`} {...props}>
 			{children}
-		</a> : <button onClick={ onClick } title={ title } disabled={disabled} className={`${className ? className + (hideDefaults ? '' : ' ') : ''}${hideDefaults ? '' : 'border-0 default-transition text-sm underline hover:no-underline hover:opacity-60 focus:outline-none'}`} {...props}>
+		</a> : <button onClick={ onClick } title={ title } target={ target } disabled={disabled} className={`${className ? className + (hideDefaults ? '' : ' ') : ''}${hideDefaults ? '' : 'border-0 default-transition text-sm underline hover:no-underline hover:opacity-60 focus:outline-none'}`} {...props}>
 			{children}
 		</button>
 	);

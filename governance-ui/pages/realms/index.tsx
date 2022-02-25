@@ -7,10 +7,12 @@ import useWalletStore from '../../stores/useWalletStore'
 import RealmsDashboard from './components/RealmsDashboard'
 import { LinkButton } from '@components/Button'
 
-const NavOption = ({ number, href, title, children, onClick, ...props }) => {
+import { ConnectWalletSimple } from '@components/ConnectWalletButton'
+
+const NavOption = ({ number, href, title, children, onClick, target, ...props }) => {
 	return <>
 		<li>
-			<LinkButton onClick={ onClick } href={ href } title={ title } className="w-full flex items-start py-2 hover:text-primary-dark focus:outline-none" hideDefaults={ true }>
+			<LinkButton onClick={ onClick } href={ href } target={ target } title={ title } className="w-full flex items-start py-2 hover:text-primary-dark focus:outline-none" hideDefaults={ true }>
 				<span className="flex-shrink-0 pr-2">
 					&lt; { number || " "} &gt;
 				</span>
@@ -73,7 +75,13 @@ const Realms = () => {
 					<div className="py-2">
 						Choose one of the following options:
 					</div>
+					<div className="py-20 bg-black">
+						<ConnectWalletSimple />
+					</div>
 					<ul className="">
+
+
+
 						<NavOption number={1} onClick={ e  => {
 							alert("Connect my wallet :)");
 							e.preventDefault();
