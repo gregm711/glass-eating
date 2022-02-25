@@ -94,7 +94,7 @@ function App({ Component, pageProps }) {
 				<ThemeProvider defaultTheme="Mango">
 					<WalletIdentityProvider appName={'Realms'}>
 						{ showNav && <NavBar /> }
-						<Notifications />
+						{ showNav && <Notifications /> }
 						<PageBodyContainer showName={ showNav } replaceClasses={ replaceClasses } pathName={ pathName }>
 							<Component { ...globalProps } />
 						</PageBodyContainer>

@@ -43,3 +43,20 @@ export const LinkButton: FunctionComponent<ButtonProps> = ({ children, onClick, 
 		</button>
 	);
 }
+
+
+export const NavButton = (props) => {
+
+	return (
+		<LinkButton { ...props } className={`nav-button w-full flex items-start items-center py-2 hover:text-primary-dark focus:outline-none${ props.className ? " " + props.className : ""}`} hideDefaults={ true }>
+			{ props.selectionkey && <span className="flex-shrink-0 mr-2 nav-button__hover-highlight">
+				&lt; <span dangerouslySetInnerHTML={{__html: (props.selectionkey || " ") }}/> &gt;
+			</span> }
+			{ props.children && <>
+				{ props.htmlString ? <span dangerouslySetInnerHTML={{__html: (props.children || "Lorem ipsum") }}/> : <span className="flex items-center">
+					{ props.children  }
+				</span> }
+			</> }
+		</LinkButton>
+	);
+}

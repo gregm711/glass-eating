@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import React from 'react'
 import Loading from '@components/Loading'
 import useWalletStore from 'stores/useWalletStore'
-import Button from '@components/Button'
+import Button, { NavButton } from '@components/Button'
 import { notify } from '@utils/notifications'
 
 export default function RealmsDashboard({
@@ -44,9 +44,9 @@ export default function RealmsDashboard({
   }
 
   return (
-    <div>
-      {/* Re-instate when there are enough REALMs for this to be useful. Maybe > 25 */}
-      {/* <div className="mb-10 flex">
+		<>
+			{/* Re-instate when there are enough REALMs for this to be useful. Maybe > 25 */}
+			{/* <div className="mb-10 flex">
             <Input
               value={search}
               type="text"
@@ -61,15 +61,22 @@ export default function RealmsDashboard({
             </div>
           </div> */}
 
-      <div
-        className={`grid grid-flow-row grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4`}
-      >
-        {showNewButton && (
-          <Button onClick={handleCreateRealmButtonClick}>Create DAO</Button>
-        )}
-
-        {showNewButton && <Button onClick={goToRealm}>Go to DAO</Button>}
-      </div>
-    </div>
+			<ul>
+				{showNewButton && (
+					<li>
+						<NavButton selectionkey={'ENTER'} onClick={goToRealm}>
+							Browse DOAs
+						</NavButton>
+					</li>
+				)}
+				{showNewButton && (
+					<li>
+						<NavButton selectionkey={'&nbsp; N  &nbsp;'} onClick={handleCreateRealmButtonClick}>
+							Create new DAO
+						</NavButton>
+					</li>
+				)}
+			</ul>
+		</>
   )
 }
