@@ -238,7 +238,7 @@ const AddMemberForm = ({ close }) => {
 
       <Input
         useDefaultStyle={false}
-        className="p-4 w-full bg-bkg-3 border border-bkg-3 default-transition text-sm text-fgd-1 rounded-md focus:border-bkg-3 focus:outline-none"
+        className="p-4 w-full bg-bkg-3 border border-bkg-3 default-transition text-sm text-fgd-1  focus:border-bkg-3 focus:outline-none"
         wrapperClassName="my-6"
         label="Member's wallet"
         placeholder="Member's wallet"
@@ -271,7 +271,7 @@ const AddMemberForm = ({ close }) => {
           <Input
             noMaxWidth
             useDefaultStyle={false}
-            className="p-4 w-full bg-bkg-3 border border-bkg-3 default-transition text-sm text-fgd-1 rounded-md focus:border-bkg-3 focus:outline-none"
+            className="p-4 w-full bg-bkg-3 border border-bkg-3 default-transition text-sm text-fgd-1  focus:border-bkg-3 focus:outline-none"
             wrapperClassName="mb-6"
             label="Title of your proposal"
             placeholder="Title of your proposal"
@@ -288,7 +288,7 @@ const AddMemberForm = ({ close }) => {
           <Input
             noMaxWidth
             useDefaultStyle={false}
-            className="p-4 w-full bg-bkg-3 border border-bkg-3 default-transition text-sm text-fgd-1 rounded-md focus:border-bkg-3 focus:outline-none"
+            className="p-4 w-full bg-bkg-3 border border-bkg-3 default-transition text-sm text-fgd-1  focus:border-bkg-3 focus:outline-none"
             wrapperClassName="mb-6"
             label="Description"
             placeholder="Description of your proposal (optional)"
@@ -305,7 +305,7 @@ const AddMemberForm = ({ close }) => {
           <Input
             noMaxWidth
             useDefaultStyle={false}
-            className="p-4 w-full bg-bkg-3 border border-bkg-3 default-transition text-sm text-fgd-1 rounded-md focus:border-bkg-3 focus:outline-none"
+            className="p-4 w-full bg-bkg-3 border border-bkg-3 default-transition text-sm text-fgd-1  focus:border-bkg-3 focus:outline-none"
             wrapperClassName="mb-6"
             min={mintMinAmount}
             label="Voter weight"

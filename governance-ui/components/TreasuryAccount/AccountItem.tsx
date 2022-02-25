@@ -31,12 +31,12 @@ const AccountItem = ({
   return (
     <div
       onClick={handleGoToAccountOverview}
-      className="cursor-pointer default-transition flex items-start text-fgd-1 border border-fgd-4 p-3 rounded-lg w-full hover:bg-bkg-3"
+      className="cursor-pointer default-transition flex items-start text-fgd-1 border border-fgd-4 p-3  w-full hover:bg-bkg-3"
     >
       {logo && (
         <img
           className={`flex-shrink-0 h-6 w-6 mr-2.5 mt-1 ${
-            isSol && 'rounded-full'
+            isSol && ''
           }`}
           src={logo}
         />

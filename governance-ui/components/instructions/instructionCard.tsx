@@ -120,7 +120,7 @@ export default function InstructionCard({
         {descriptor?.name && `– ${descriptor.name}`}{' '}
         {tokenImgUrl && (
           <img
-            className={`w-5 h-5 ml-2 ${isSol && 'rounded-full'}`}
+            className={`w-5 h-5 ml-2 ${isSol && ''}`}
             src={tokenImgUrl}
           ></img>
         )}

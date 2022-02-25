@@ -35,7 +35,7 @@ const LockTokensAccount = () => {
     (s) => s.state.votingPowerFromDeposits
   )
   const mainBoxesClasses =
-    'bg-bkg-1 px-4 py-4 rounded-md flex flex-col mr-3 mb-3'
+    'bg-bkg-1 px-4 py-4  flex flex-col mr-3 mb-3'
   const isNextSameRecord = (x, next) => {
     const nextType = Object.keys(next.lockup.kind)[0]
     return (
@@ -84,7 +84,7 @@ const LockTokensAccount = () => {
 
   return (
     <div className="grid grid-cols-12 gap-4">
-      <div className="bg-bkg-2 col-span-12 md:order-first order-last p-4 md:p-6 rounded-lg">
+      <div className="bg-bkg-2 col-span-12 md:order-first order-last p-4 md:p-6 ">
         <h1 className="flex mb-8 items-center">
           <PreviousRouteBtn />
           <span className="ml-4">Account</span>
@@ -147,7 +147,7 @@ const LockTokensAccount = () => {
             ?.map((x, idx) => (
               <DepositCard deposit={x} key={idx}></DepositCard>
             ))}
-          <div className="flex flex-col items-center justify-center p-8 rounded-lg bg-bkg-4 mb-3">
+          <div className="flex flex-col items-center justify-center p-8  bg-bkg-4 mb-3">
             <div className="flex text-center mb-6">
               Increase your voting power by<br></br> locking your tokens.
             </div>

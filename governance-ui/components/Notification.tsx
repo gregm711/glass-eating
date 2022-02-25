@@ -54,7 +54,7 @@ const Notification = ({ type, message, description, txid }) => {
 
   return (
     <div
-      className={`max-w-sm w-full bg-bkg-1 shadow-lg rounded-md mt-2 pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden`}
+      className={`max-w-sm w-full bg-bkg-1 shadow-lg  mt-2 pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden`}
     >
       <div className={`p-4`}>
         <div className={`flex items-center`}>
@@ -87,7 +87,7 @@ const Notification = ({ type, message, description, txid }) => {
           <div className={`ml-4 flex-shrink-0 self-start flex`}>
             <button
               onClick={() => setShowNotification(false)}
-              className={`bg-bkg-2 default-transition rounded-md inline-flex text-fgd-3 hover:text-fgd-4 focus:outline-none`}
+              className={`bg-bkg-2 default-transition  inline-flex text-fgd-3 hover:text-fgd-4 focus:outline-none`}
             >
               <span className={`sr-only`}>Close</span>
               <XIcon className="h-5 w-5" />

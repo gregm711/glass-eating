@@ -33,7 +33,7 @@ const Proposal = () => {
 
   return (
     <div className="grid grid-cols-12 gap-4">
-      <div className="bg-bkg-2 rounded-lg p-4 md:p-6 col-span-12 md:col-span-7 lg:col-span-8 space-y-3">
+      <div className="bg-bkg-2  p-4 md:p-6 col-span-12 md:col-span-7 lg:col-span-8 space-y-3">
         {proposal ? (
           <>
             <div className="flex flex-items justify-between">
@@ -83,16 +83,16 @@ const Proposal = () => {
           </>
         ) : (
           <>
-            <div className="animate-pulse bg-bkg-3 h-12 rounded-lg" />
-            <div className="animate-pulse bg-bkg-3 h-64 rounded-lg" />
-            <div className="animate-pulse bg-bkg-3 h-64 rounded-lg" />
+            <div className="animate-pulse bg-bkg-3 h-12 " />
+            <div className="animate-pulse bg-bkg-3 h-64 " />
+            <div className="animate-pulse bg-bkg-3 h-64 " />
           </>
         )}
       </div>
 
       <div className="col-span-12 md:col-span-5 lg:col-span-4 space-y-4">
         <TokenBalanceCardWrapper proposal={option(proposal?.account)} />
-        <div className="bg-bkg-2 rounded-lg">
+        <div className="bg-bkg-2 ">
           <div className="p-4 md:p-6">
             <h3 className="mb-4">Results</h3>
             <div className="flex space-x-4 items-center">

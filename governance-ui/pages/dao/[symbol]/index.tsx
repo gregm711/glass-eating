@@ -106,7 +106,7 @@ const REALM = () => {
   return (
     <>
       <div className="grid grid-cols-12 gap-4">
-        <div className="border border-fgd-1 bg-bkg-2 col-span-12 md:col-span-7 md:order-first lg:col-span-8 order-last p-4 md:p-6 rounded-lg">
+        <div className="border border-fgd-1 bg-bkg-2 col-span-12 md:col-span-7 md:order-first lg:col-span-8 order-last p-4 md:p-6 ">
           <RealmHeader />
           <div>
             {realmInfo?.bannerImage ? (
@@ -145,7 +145,7 @@ const REALM = () => {
                 />
               ))
             ) : (
-              <div className="bg-bkg-3 px-4 md:px-6 py-4 rounded-lg text-center text-fgd-3">
+              <div className="bg-bkg-3 px-4 md:px-6 py-4  text-center text-fgd-3">
                 No proposals found
               </div>
             )}
