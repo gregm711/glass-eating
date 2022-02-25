@@ -28,6 +28,8 @@ module.exports = {
           'fgd-2': '#33FF00',
           'fgd-3': '#33FF00',
           'fgd-4': '#33FF00',
+          white: '#FFFFFF',
+          black: '#000000',
           orange: '#F7A531',
           red: '#cb676f',
           green: '#78C46C',
