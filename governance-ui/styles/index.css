@@ -165,3 +165,9 @@ button {
 	background-color: lime;
 	color: #000000;
 }
+
+.nav-link {}
+
+.nav-link > span:after {
+	content: ">";
+}
