@@ -55,8 +55,7 @@ export default function InstructionCard({
       proposalInstruction.account.getSingleInstruction()
     ).then((d) => setDescriptor(d))
     const getAmountImg = async () => {
-      const sourcePk = proposalInstruction.account.getSingleInstruction()
-        .accounts[0].pubkey
+      const sourcePk = proposalInstruction.account.getSingleInstruction().accounts[0].pubkey
       const tokenAccount = await tryGetTokenAccount(
         connection.current,
         sourcePk
