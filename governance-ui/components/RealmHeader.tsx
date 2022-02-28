@@ -29,35 +29,13 @@ const RealmHeader = () => {
 				</Link>
 			) : null}
 			<div className="pb-4">
-				<div className="border-b border-fgd-4 flex flex-col md:flex-row md:items-center md:justify-between pb-3">
-					{realmDisplayName ? (
-						<a href={realmUrl} target="_blank" rel="noopener noreferrer">
-							<div className="flex items-center cursor-pointer">
-								<div className="flex flex-col md:flex-row items-center pb-3 md:pb-0">
-									{realmInfo?.ogImage ? <img className="flex-shrink-0 mb-2 md:mb-0 w-8" src={realmInfo?.ogImage}></img> : <div className="bg-[rgba(255,255,255,0.1)] h-14 w-14 flex font-bold items-center justify-center  text-fgd-3">{realmDisplayName?.charAt(0)}</div>}
-									<h1 className="ml-3">{realmDisplayName}</h1>
-								</div>
-								<ExternalLinkIcon className={`flex-shrink-0 h-4 w-4 ml-2 text-primary-light`} />
-							</div>
-						</a>
-					) : (
-						<div className="animate-pulse bg-bkg-3 h-10 w-40 " />
-					)}
-					<div className="flex items-center space-x-6">
-						{realmInfo?.website ? (
-							<a className="default-transition flex items-center text-fgd-1 text-sm hover:text-primary-light" href={realmInfo?.website} target="_blank" rel="noopener noreferrer">
-								<GlobeAltIcon className="mr-1.5 h-4 text-primary-light w-4" />
-								Website
-							</a>
-						) : null}
-						{realmInfo?.twitter ? (
-							<a className="default-transition flex items-center text-fgd-1 text-sm hover:text-primary-light" href={`https://twitter.com/${realmInfo?.twitter}`} target="_blank" rel="noopener noreferrer">
-								<TwitterIcon className="mr-1.5 h-4 text-primary-light w-4" />
-								Twitter
-							</a>
-						) : null}
-					</div>
-				</div>
+				<a href={realmUrl} target="_blank" rel="noopener noreferrer">
+					<span className="flex items-center cursor-pointer">
+						<span className="flex flex-col md:flex-row items-center pb-3 md:pb-0">
+							<span className="ml-3">{realmDisplayName}</span>
+						</span>
+					</span>
+				</a>
 			</div>
 		</>
 	)
