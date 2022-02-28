@@ -22,17 +22,16 @@ const RealmHeader = () => {
 		<>
 			{isBackNavVisible ? (
 				<Link href={fmtUrlWithCluster('/realms')}>
-					<a className="default-transition flex items-center mb-2 md:mb-6 text-fgd-3 text-sm transition-all hover:text-fgd-1">
-						<ArrowLeftIcon className="h-4 w-4 mr-1 text-primary-light" />
-						Back
+					<a className="uppercase default-transition flex items-center mb-2 md:mb-6 text-fgd-3 text-sm transition-all hover:text-fgd-1">
+						&lt; Back
 					</a>
 				</Link>
 			) : null}
-			<div className="pb-4">
-				<a href={realmUrl} target="_blank" rel="noopener noreferrer">
+			<div className="ml-4 -mb-5 relative z-10 m-width-full">
+				<a href={realmUrl} target="_blank" rel="noopener noreferrer" className="bg-dark inline-block">
 					<span className="flex items-center cursor-pointer">
 						<span className="flex flex-col md:flex-row items-center pb-3 md:pb-0">
-							<span className="ml-3">{realmDisplayName}</span>
+							<span className="ml-4 pr-8 text-3xl uppercase">{realmDisplayName}</span>
 						</span>
 					</span>
 				</a>

@@ -34,6 +34,8 @@ module.exports = {
 					orange: '#F7A531',
 					red: '#cb676f',
 					blue: '#8AACEB',
+					core: '#33FF00',
+					dark: '#282828',
 				},
 				'sierra-theme': {
 					primary: { light: '#E1CE7A', dark: '#D2B537' },
@@ -51,6 +53,8 @@ module.exports = {
 					red: '#cb676f',
 					green: '#78C46C',
 					blue: '#8AACEB',
+					core: '#33FF00',
+					dark: '#282828',
 				},
 				'mango-theme': {
 					primary: { light: '#F2C94C', dark: '#EEB91B' },
@@ -68,6 +72,8 @@ module.exports = {
 					red: '#E54033',
 					green: '#AFD803',
 					blue: '#8AACEB',
+					core: '#33FF00',
+					dark: '#282828',
 				},
 				'bkg-1': 'var(--bkg-1)',
 				'bkg-2': 'var(--bkg-2)',
@@ -87,6 +93,8 @@ module.exports = {
 				green: 'var(--green)',
 				orange: 'var(--orange)',
 				blue: 'var(--blue)',
+				core: '#33FF00',
+				dark: '#282828',
 			},
 			animation: {
 				'connect-wallet-ping':
